@@ -41,9 +41,14 @@ Manage Events: Edit event details, manage ticket sales, and monitor attendee reg
 Explore Events: Attendees can browse events using pagination, find similar events, and purchase tickets.
   </li>
 </ul>
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+<hr/>
 
 ## Getting Started
+
+Do create a .env file with required keys
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 

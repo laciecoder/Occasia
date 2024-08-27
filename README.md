@@ -20,7 +20,6 @@ Occasia is a comprehensive event management platform that allows organizers to c
 
 - **Backend**:
   - Node.js
-  - Express.js
   - MongoDB (Mongoose for ORM)
   - Clerk (Authentication)
   - Zod (Data Validation)

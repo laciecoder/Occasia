@@ -24,7 +24,7 @@ Occasia is a comprehensive event management platform that allows organizers to c
   - Clerk (Authentication)
   - Zod (Data Validation)
 
-##Usage
+## Usage
 <ul>
 <li>
 Create an Organizer Account: Sign up and create an organizer account.

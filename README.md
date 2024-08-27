@@ -61,6 +61,23 @@ pnpm dev
 # or
 bun dev
 ```
+Sample format of env file:
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_************************************
+CLERK_SECRET_KEY=sk_test_******************************
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+MONGODB_URI=mongodb+srv://*******:************@****.mongodb.net/?retryWrites=true&w=majority&appName=***
+
+UPLOADTHING_SECRET=sk_live_**********************************************
+UPLOADTHING_APP_ID=*********
+
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_************************************
+STRIPE_SECRET_KEY=sk_test_***************************************
+STRIPE_WEBHOOK_SECRET=whsec_*************************************
+
+NEXT_PUBLIC_SERVER_URL=http://localhost:3000
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

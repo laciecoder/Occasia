@@ -1,11 +1,13 @@
 import EventForm from "@/components/EventForm";
 import { getEventById } from "@/lib/actions/event-actions";
-import { SearchParamProps, UpdateEventParams } from "@/lib/types";
+import { SearchParamProps } from "@/lib/types";
 import { auth } from "@clerk/nextjs/server";
 
 export default async function UpdatePage({ params: { id } }: SearchParamProps) {
   const event = await getEventById(id);
   const { sessionClaims } = auth();
+  const userId = sessionClaims?.userId as string;
+  console.log(sessionClaims);
   return (
     <div className="max-w-screen-2xl mx-auto px-8">
       <section className="py-5 md:py-10">
@@ -15,7 +17,7 @@ export default async function UpdatePage({ params: { id } }: SearchParamProps) {
         <EventForm
           type="Update"
           event={event}
-          userId={sessionClaims?.userId}
+          userId={userId}
           eventId={event._id}
         />
       </div>

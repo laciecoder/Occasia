@@ -47,8 +47,8 @@ export default function EventForm({
     event && type === "Update"
       ? {
           ...event,
-          startDateTime: new Date(event?.startDateTime),
-          endDateTime: new Date(event?.endDateTime),
+          startDateTime: new Date(event?.startDateTime as any),
+          endDateTime: new Date(event?.endDateTime as any),
           categoryId: event.category?._id,
         }
       : eventDefaultValues;

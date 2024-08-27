@@ -35,7 +35,7 @@ export default function GetPayment({
       isFree: event.isFree,
       buyerId: userId,
     };
-    await checkoutOrder(order);
+    await checkoutOrder(order as any);
   }
   return (
     <form action={onSubmit}>

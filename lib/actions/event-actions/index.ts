@@ -14,8 +14,8 @@ import {
 } from "@/lib/types";
 import { Category } from "@/lib/db/models/category";
 import { connectToDatabase } from "@/lib/db";
-import User from "@/lib/db/models/user";
 import { Event } from "@/lib/db/models/event";
+import { User } from "@/lib/db/models/user";
 
 const getCategoryByName = async (name: string) => {
   return Category.findOne({ name: { $regex: name, $options: "i" } });

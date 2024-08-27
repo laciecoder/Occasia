@@ -19,8 +19,5 @@ const user = new Schema({
   photo: { type: String, required: true },
 });
 
-const User = connection.modelNames().includes("User")
-  ? connection.model("User")
-  : model("User", user);
+export const User = models.User || model("User", user);
 
-export default User;

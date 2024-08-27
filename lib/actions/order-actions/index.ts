@@ -13,7 +13,7 @@ import { redirect } from "next/navigation";
 import { ObjectId } from "mongodb";
 import Stripe from "stripe";
 import { Event } from "@/lib/db/models/event";
-import User from "@/lib/db/models/user";
+import { User } from "@/lib/db/models/user";
 
 export default async function checkoutOrder(order: CheckoutOrderParams) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);

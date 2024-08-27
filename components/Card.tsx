@@ -27,7 +27,7 @@ export default function Card({ event, hasOrderLink, hidePrice }: CardProps) {
           <Link href={`/events/${event._id}/update`}>
             <EditIcon width={20} height={20} />
           </Link>
-          <DeleteConfirmation eventId={event._id} />
+          <DeleteConfirmation eventId={event?._id as any} />
         </div>
       )}
       <div className="flex min-h-[230px] flex-col gap-5 p-5 md:gap-4">
@@ -44,7 +44,7 @@ export default function Card({ event, hasOrderLink, hidePrice }: CardProps) {
         <p className="font-normal text-sm leading-3 ">
           {formatDateTime(event?.startDateTime).dateTime}
         </p>
-        <Link href={`/events/${event._id}`} >
+        <Link href={`/events/${event._id}`}>
           <p className="font-semibold text-lg md:text-2xl line-clamp-2 flex-1 text-black">
             {event.title}
           </p>

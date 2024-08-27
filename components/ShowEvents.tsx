@@ -1,5 +1,6 @@
 import { IEvent } from "@/lib/db/models/event";
 import Card from "./Card";
+import { ObjectId } from "mongoose";
 
 interface ShowEventsProps {
   data: IEvent[];
@@ -29,7 +30,7 @@ export default function ShowEvents({
               const hidePrice = showType === "My_Tickets";
               const hasOrderLink = showType === "Events_Organized";
               return (
-                <li key={event._id} className="flex justify-center">
+                <li key={event._id as any} className="flex justify-center">
                   <Card
                     event={event}
                     hasOrderLink={hasOrderLink}

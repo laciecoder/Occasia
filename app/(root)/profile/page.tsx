@@ -1,13 +1,22 @@
 import ShowEvents from "@/components/ShowEvents";
 import { Button } from "@/components/ui/button";
 import { getEventsByUser } from "@/lib/actions/event-actions";
+import { getOrdersByUser } from "@/lib/actions/order-actions";
+import { IOrder } from "@/lib/db/models/order";
+import { SearchParamProps } from "@/lib/types";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 
-export default async function ProfilePage() {
+export default async function ProfilePage({ searchParams }: SearchParamProps) {
   const { sessionClaims } = auth();
+
   const userId = sessionClaims?.userId as string;
-  const data = await getEventsByUser({ userId, page: 1 });
+  const ordersPage = Number(searchParams?.ordersPage) || 1;
+  const eventsPage = Number(searchParams?.eventsPage) || 1;
+  const data = await getEventsByUser({ userId, page: eventsPage });
+  const orders = await getOrdersByUser({ userId, page: ordersPage });
+
+  const orderedEvents = orders?.data.map((order: IOrder) => order.event) || [];
   return (
     <>
       <section className="bg-primary-50 py-5 md:py-10">
@@ -22,15 +31,14 @@ export default async function ProfilePage() {
       </section>
       <section className="flex items-center justify-center w-full my-8">
         <ShowEvents
-          // data={events?.data}
-          data={[]}
+          data={orderedEvents}
           emptyTitle="No Event Tickets Purchased"
           emptyStateSubtext="There's a lot of options for you"
           showType="My_Tickets"
           limit={3}
-          page={1}
+          page={ordersPage}
           urlParamName="ordersPage"
-          totalPages={2}
+          totalPages={orders?.totalPages}
         />
       </section>
       <section className="bg-primary-50 py-5 md:py-10">
@@ -51,9 +59,9 @@ export default async function ProfilePage() {
           emptyStateSubtext="Go Create Some"
           showType="Events_Organized"
           limit={3}
-          page={1}
+          page={eventsPage}
           urlParamName="eventsPage"
-          totalPages={2}
+          totalPages={data?.totalPages}
         />
       </section>
     </>

@@ -42,7 +42,7 @@ export default async function checkoutOrder(order: CheckoutOrderParams) {
     });
     redirect(session.url!);
   } catch (error) {
-    handleError(error);
+    throw error;
   }
 }
 

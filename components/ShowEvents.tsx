@@ -1,6 +1,7 @@
 import { IEvent } from "@/lib/db/models/event";
 import Card from "./Card";
 import { ObjectId } from "mongoose";
+import Pagination from "./Pagination";
 
 interface ShowEventsProps {
   data: IEvent[];
@@ -40,6 +41,13 @@ export default function ShowEvents({
               );
             })}
           </ul>
+          {totalPages > 1 && (
+            <Pagination
+              urlParamName={urlParamName}
+              page={page}
+              totalPages={totalPages}
+            />
+          )}
         </div>
       ) : (
         <div className="flex items-center justify-center w-full min-h-[200px] flex-col gap-3 rounded-2xl bg-grey-50 py-28 text-center">

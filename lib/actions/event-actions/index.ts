@@ -16,6 +16,7 @@ import { Category } from "@/lib/db/models/category";
 import { connectToDatabase } from "@/lib/db";
 import { Event } from "@/lib/db/models/event";
 import { User } from "@/lib/db/models/user";
+import { redirect } from "next/navigation";
 
 const getCategoryByName = async (name: string) => {
   return Category.findOne({ name: { $regex: name, $options: "i" } });
@@ -133,7 +134,6 @@ export async function getAllEvents({
 
     const events = await populateEvent(eventsQuery);
     const eventsCount = await Event.countDocuments(conditions);
-
     return {
       data: JSON.parse(JSON.stringify(events)),
       totalPages: Math.ceil(eventsCount / limit),

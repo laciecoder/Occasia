@@ -95,9 +95,9 @@ export default async function EventShowPage({
           emptyTitle="No Events Found at moment"
           emptyStateSubtext="Come Back Later"
           showType="All_Events"
-          limit={6}
-          page={1}
-          totalPages={2}
+          limit={3}
+          page={searchParams.page as string}
+          totalPages={relatedEvents?.totalPages}
         />
       </section>
     </>

@@ -71,6 +71,7 @@ export default function Dropdown({ value, onChangeHandler }: DropdownProps) {
                 <Input
                   type="text"
                   placeholder="Category Name"
+                  defaultValue={value}
                   className="input-field mt-3"
                   onChange={(e) => setNewCategory(e.target.value)}
                 />

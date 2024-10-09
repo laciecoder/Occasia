@@ -1,5 +1,8 @@
 test mail: test@gmail.com
+</br>
 password: test
+# This Account for only visiting purpose events can't be created 
+
 # Occasia
 
 Occasia is a comprehensive event management platform that allows organizers to create, manage, and ticket events seamlessly. It provides a robust platform for both organizers and attendees, enabling users to easily discover and participate in events that interest them.

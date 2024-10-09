@@ -1,46 +1,44 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { Button } from "./ui/button";
+
+import { Button } from "@/components/ui/button";
 import { formUrlQuery } from "@/lib/utils";
 
-interface PaginationProps {
+type PaginationProps = {
   page: number | string;
   totalPages: number;
-  urlParamName: string | undefined;
-}
-export default function Pagination({
-  page,
-  totalPages,
-  urlParamName,
-}: PaginationProps) {
+  urlParamName?: string;
+};
+
+export default function Pagination({ page, totalPages, urlParamName }: PaginationProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  function onClick(buttonType: "prev" | "next") {
-    const pageValue = (buttonType == "prev" ? -1 : 1) + Number(page);
-    console.log(searchParams);
+  const onClick = (btnType: "prev" | "next") => {
+    const pageValue = btnType === "next" ? Number(page) + 1 : Number(page) - 1;
     const newUrl = formUrlQuery({
       params: searchParams.toString(),
-      key: urlParamName || "Page",
+      key: urlParamName || "page",
       value: pageValue.toString(),
     });
+
     router.push(newUrl, { scroll: false });
-  }
+  };
 
   return (
     <div className="flex gap-2">
       <Button
-        size="sm"
+        size="lg"
         variant="outline"
         className="w-28"
         onClick={() => onClick("prev")}
         disabled={Number(page) <= 1}
       >
-        Prev
+        Previous
       </Button>
       <Button
-        size="sm"
+        size="lg"
         variant="outline"
         className="w-28"
         onClick={() => onClick("next")}
@@ -50,4 +48,4 @@ export default function Pagination({
       </Button>
     </div>
   );
-}
+};

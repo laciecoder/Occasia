@@ -14,9 +14,10 @@ export default async function EventShowPage({
   searchParams,
 }: SearchParamProps) {
   const event = await getEventById(id);
+  const page = searchParams?.page || 1;
   const relatedEvents = await getRelatedEventsByCategory({
     categoryId: event.category._id,
-    page: searchParams.page as string,
+    page: page.toString(),
     eventId: event._id,
   });
   return (
@@ -96,7 +97,7 @@ export default async function EventShowPage({
           emptyStateSubtext="Come Back Later"
           showType="All_Events"
           limit={3}
-          page={searchParams.page as string}
+          page={page.toString()}
           totalPages={relatedEvents?.totalPages}
         />
       </section>

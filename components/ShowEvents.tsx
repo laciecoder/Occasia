@@ -1,6 +1,5 @@
 import { IEvent } from "@/lib/db/models/event";
 import Card from "./Card";
-import { ObjectId } from "mongoose";
 import Pagination from "./Pagination";
 
 interface ShowEventsProps {

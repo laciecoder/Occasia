@@ -10,6 +10,8 @@ import GetPayment from "./GetPayment";
 export default function CheckoutButton({ event }: { event: IEvent }) {
   const { user } = useUser();
   const userId = user?.publicMetadata?.userId as string;
+  console.log(event);
+  console.log(user)
   const isEventFinished = new Date(event.endDateTime as any) < new Date();
   return (
     <div className="flex items-center gap-3">
@@ -25,7 +27,9 @@ export default function CheckoutButton({ event }: { event: IEvent }) {
             </Button>
           </SignedOut>
           <SignedIn>
-            <GetPayment event={event} userId={userId}/>
+            {
+              event.organizer?._id !== userId ? <GetPayment event={event} userId={userId}/> : null
+            }
           </SignedIn>
         </>
       )}

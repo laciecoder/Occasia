@@ -31,17 +31,17 @@ export const formatDateTime = (dateString: any) => {
   };
 
   const formattedDateTime: string = new Date(dateString).toLocaleString(
-    "en-US",
+    "en-IN",
     dateTimeOptions
   );
 
   const formattedDate: string = new Date(dateString).toLocaleString(
-    "en-US",
+    "en-IN",
     dateOptions
   );
 
   const formattedTime: string = new Date(dateString).toLocaleString(
-    "en-US",
+    "en-IN",
     timeOptions
   );
 
@@ -56,9 +56,9 @@ export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
 
 export const formatPrice = (price: string) => {
   const amount = parseFloat(price);
-  const formattedPrice = new Intl.NumberFormat("en-US", {
+  const formattedPrice = new Intl.NumberFormat("en-IN", {
     style: "currency",
-    currency: "USD",
+    currency: "INR",
   }).format(amount);
 
   return formattedPrice;

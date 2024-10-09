@@ -4,27 +4,29 @@ Occasia is a comprehensive event management platform that allows organizers to c
 
 ## Features
 
-- **Event Creation**: Organizers can create and customize events with ease.
-- **Event Management**: Manage all aspects of the event, including updates, ticketing, and attendee tracking.
-- **Ticketing**: Integrated Stripe payment for secure and efficient ticket purchasing.
-- **Attendee Experience**: Users can explore similar events, register for the ones they like, and purchase tickets.
-- **Pagination**: Implemented for efficient browsing through a large number of events.
+-   **Event Creation**: Organizers can create and customize events with ease.
+-   **Event Management**: Manage all aspects of the event, including updates, ticketing, and attendee tracking.
+-   **Ticketing**: Integrated Stripe payment for secure and efficient ticket purchasing.
+-   **Attendee Experience**: Users can explore similar events, register for the ones they like, and purchase tickets.
+-   **Pagination**: Implemented for efficient browsing through a large number of events.
 
 ## Tech Stack
 
-- **Frontend**: 
-  - Next.js
-  - Shadcn/UI (UI Components)
-  - Tailwind CSS
-  - TypeScript
+-   **Frontend**:
 
-- **Backend**:
-  - Node.js
-  - MongoDB (Mongoose for ORM)
-  - Clerk (Authentication)
-  - Zod (Data Validation)
+    -   Next.js
+    -   Shadcn/UI (UI Components)
+    -   Tailwind CSS
+    -   TypeScript
+
+-   **Backend**:
+    -   Node.js
+    -   MongoDB (Mongoose for ORM)
+    -   Clerk (Authentication)
+    -   Zod (Data Validation)
 
 ## Usage
+
 <ul>
 <li>
 Create an Organizer Account: Sign up and create an organizer account.
@@ -61,7 +63,9 @@ pnpm dev
 # or
 bun dev
 ```
+
 Sample format of env file:
+
 ```env
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_************************************
 CLERK_SECRET_KEY=sk_test_******************************
@@ -89,8 +93,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+-   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 

@@ -1,7 +1,7 @@
 export default function OrdersLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  return <div className="max-w-7xl mx-auto">{children}</div>;
+    return <div className="max-w-7xl mx-auto">{children}</div>;
 }

@@ -8,31 +8,29 @@ import Link from "next/link";
 import GetPayment from "./GetPayment";
 
 export default function CheckoutButton({ event }: { event: IEvent }) {
-  const { user } = useUser();
-  const userId = user?.publicMetadata?.userId as string;
-  console.log(event);
-  console.log(user)
-  const isEventFinished = new Date(event.endDateTime as any) < new Date();
-  return (
-    <div className="flex items-center gap-3">
-      {isEventFinished ? (
-        <p className="text-red-400 p-2">
-          Sorry! Tickets are no Longer Available.
-        </p>
-      ) : (
-        <>
-          <SignedOut>
-            <Button asChild size="lg" className="rounded-full">
-              <Link href="/sign-in">Get Tickets</Link>
-            </Button>
-          </SignedOut>
-          <SignedIn>
-            {
-              event.organizer?._id !== userId ? <GetPayment event={event} userId={userId}/> : null
-            }
-          </SignedIn>
-        </>
-      )}
-    </div>
-  );
+    const { user } = useUser();
+    const userId = user?.publicMetadata?.userId as string;
+    const isEventFinished = new Date(event.endDateTime as any) < new Date();
+    return (
+        <div className="flex items-center gap-3">
+            {isEventFinished ? (
+                <p className="text-red-400 p-2">
+                    Sorry! Tickets are no Longer Available.
+                </p>
+            ) : (
+                <>
+                    <SignedOut>
+                        <Button asChild size="lg" className="rounded-full">
+                            <Link href="/sign-in">Get Tickets</Link>
+                        </Button>
+                    </SignedOut>
+                    <SignedIn>
+                        {event.organizer?._id !== userId ? (
+                            <GetPayment event={event} userId={userId} />
+                        ) : null}
+                    </SignedIn>
+                </>
+            )}
+        </div>
+    );
 }
